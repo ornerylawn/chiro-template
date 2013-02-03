@@ -3,21 +3,22 @@ spapp
 
 spapp is a template for writing single-page apps. It provides a good amount of modularism. Unfortunately it's hard to async-load css correctly, so that's the only thing that has to be maintained in index.html. Everything else is loaded via the AMD loader:
 
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <title>spapp</title>
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" />
-        <link rel="stylesheet" href="css/reset.css" />
-        <link rel="stylesheet" href="css/main_view.css" />
-        <link rel="stylesheet" href="css/rand_color_view.css" />
-        <script data-main="js/main" src="js/require.js"></script>
-      </head>
-      <body>
-        <!-- no need to put anything here -->
-      </body>
-    </html>
++```html
++<!doctype html>
++<html lang="en">
++  <head>
++    <meta charset="utf-8" />
++    <title>spapp</title>
++    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" />
++    <link rel="stylesheet" href="css/reset.css" />
++    <link rel="stylesheet" href="css/main_view.css" />
++    <link rel="stylesheet" href="css/rand_color_view.css" />
++    <script data-main="js/main" src="js/require.js"></script>
++  </head>
++  <body>
++    <!-- no need to put anything here -->
++  </body>
++</html>
 
 Structure
 ---------
