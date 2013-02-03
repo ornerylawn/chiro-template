@@ -86,4 +86,4 @@ Use the following command to auto-generate the css:
 Server
 ------
 
-I use [hipster-serve](/hipster-serve) during development, but any server that can serve a directory will work.
+I use [hipster-serve](https://github.com/ryanlbrown/hipster-serve) during development, but any server that can serve a directory will work.
