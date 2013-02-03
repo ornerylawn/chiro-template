@@ -4,7 +4,7 @@ define([
   'underscore',
   'base_view',
   'rand_color_view',
-  'text!tmpl/main_view.tmpl',
+  'text!tmpl/main_view.html',
 
 ], function($, _, BaseView, RandColorView, tmplText) {
 

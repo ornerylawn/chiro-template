@@ -3,7 +3,7 @@ define([
   "jquery",
   "underscore",
   "base_view",
-  "text!tmpl/rand_color_view.tmpl",
+  "text!tmpl/rand_color_view.html",
 
 ], function($, _, BaseView, tmplText) {
 
