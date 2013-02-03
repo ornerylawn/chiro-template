@@ -56,7 +56,8 @@ require([
 
   var mainView = new MainView();
   mainView.render();
-
+  
+  // Append the main view to the body when the document is ready.
   $(document).ready(function() {
     $('body').append(mainView.el);
   });
@@ -90,6 +91,7 @@ define([
     render: function() {
       this.setHTML(this.tmpl());
 
+      // Create a RandColorView and insert it into the .content div.
       var randColorView = new RandColorView();
       randColorView.render();
       this.$('.content').append(randColorView.el);
