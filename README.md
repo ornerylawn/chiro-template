@@ -3,22 +3,23 @@ spapp
 
 spapp is a template for writing single-page apps. It provides a good amount of modularism. Unfortunately it's hard to async-load css correctly, so that's the only thing that has to be maintained in index.html. Everything else is loaded via the AMD loader:
 
-+```html
-+<!doctype html>
-+<html lang="en">
-+  <head>
-+    <meta charset="utf-8" />
-+    <title>spapp</title>
-+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" />
-+    <link rel="stylesheet" href="css/reset.css" />
-+    <link rel="stylesheet" href="css/main_view.css" />
-+    <link rel="stylesheet" href="css/rand_color_view.css" />
-+    <script data-main="js/main" src="js/require.js"></script>
-+  </head>
-+  <body>
-+    <!-- no need to put anything here -->
-+  </body>
-+</html>
+```xml
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>spapp</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main_view.css" />
+    <link rel="stylesheet" href="css/rand_color_view.css" />
+    <script data-main="js/main" src="js/require.js"></script>
+  </head>
+  <body>
+    <!-- no need to put anything here -->
+  </body>
+</html>
+```
 
 Structure
 ---------
@@ -33,56 +34,62 @@ Views
 
 The views are backbone views, along with corresponding template and sass files. The templates are specified as dependencies ensuring that they are automatically loaded by the AMD loader. Views extend a BaseView, which is useful for app-wide utilities. As an example, a MainView is provided which contains a RandColorView as a subview:
 
-    define([
-    
-      'jquery',
-      'underscore',
-      'base_view',
-      'rand_color_view',
-      'text!tmpl/main_view.tmpl',
-    
-    ], function($, _, BaseView, RandColorView, tmplText) {
-    
-      'use strict';
-    
-      var MainView = BaseView.extend({
-    
-        tmpl: _.template(tmplText),
-    
-        render: function() {
-          this.setHTML(this.tmpl());
-    
-          var randColorView = new RandColorView();
-          randColorView.render();
-          this.$('.content').append(randColorView.el);
-    
-          return this;
-        },
-    
-      });
-    
-      return MainView;
-    
-    });
+```javascript
+define([
+
+  'jquery',
+  'underscore',
+  'base_view',
+  'rand_color_view',
+  'text!tmpl/main_view.tmpl',
+
+], function($, _, BaseView, RandColorView, tmplText) {
+
+  'use strict';
+
+  var MainView = BaseView.extend({
+
+    tmpl: _.template(tmplText),
+
+    render: function() {
+      this.setHTML(this.tmpl());
+
+      var randColorView = new RandColorView();
+      randColorView.render();
+      this.$('.content').append(randColorView.el);
+
+      return this;
+    },
+
+  });
+
+  return MainView;
+
+});
+```
 
 Templates
 ---------
 
 The template language is configured in the BaseView:
 
-    _.templateSettings = {
-      interpolate: /\{\{(.+?)\}\}/g, // {{  verbatim  }}
-      escape:      /\{\%(.+?)\%\}/g, // {%  escaped   %}
-      evaluate:    /\[\[(.+?)\]\]/g, // [[  evaluated ]]
-      variable:    'data'
-    };
+```javascript
+_.templateSettings = {
+  interpolate: /\{\{(.+?)\}\}/g, // {{  verbatim  }}
+  escape:      /\{\%(.+?)\%\}/g, // {%  escaped   %}
+  evaluate:    /\[\[(.+?)\]\]/g, // [[  evaluated ]]
+  variable:    'data'
+};
+```
 
 SASS
 ----
 
 Use the following command to auto-generate the css:
 
+```console
     sass --watch sass:css
+```
 
 Server
 ------
