@@ -3,10 +3,9 @@ define([
   'jquery',
   'underscore',
   'base_view',
-  'rand_color_view',
   'text!tmpl/main.html',
 
-], function($, _, BaseView, RandColorView, tmplText) {
+], function($, _, BaseView, tmplText) {
 
   'use strict';
 
@@ -18,10 +17,6 @@ define([
 
     render: function() {
       this.$el.html(this.tmpl())
-
-      var randColorView = new RandColorView();
-      this.$('.content').append(randColorView.render().el);
-
       return this;
     },
 
