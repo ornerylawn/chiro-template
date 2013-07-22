@@ -4,7 +4,7 @@ define([
   'underscore',
   'base_view',
   'rand_color_view',
-  'text!tmpl/main_view.html',
+  'text!tmpl/main.html',
 
 ], function($, _, BaseView, RandColorView, tmplText) {
 
@@ -13,13 +13,14 @@ define([
   var MainView = BaseView.extend({
 
     tmpl: _.template(tmplText),
+    tagName: 'div',
+    className: 'main',
 
     render: function() {
-      this.setHTML(this.tmpl());
+      this.$el.html(this.tmpl())
 
       var randColorView = new RandColorView();
-      randColorView.render();
-      this.$('.content').append(randColorView.el);
+      this.$('.content').append(randColorView.render().el);
 
       return this;
     },

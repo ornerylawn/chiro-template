@@ -1,9 +1,9 @@
 define([
 
-  "jquery",
-  "underscore",
-  "base_view",
-  "text!tmpl/rand_color_view.html",
+  'jquery',
+  'underscore',
+  'base_view',
+  'text!tmpl/rand_color.html',
 
 ], function($, _, BaseView, tmplText) {
 
@@ -12,6 +12,8 @@ define([
   var RandColorView = BaseView.extend({
 
     tmpl: _.template(tmplText),
+    tagName: 'div',
+    className: 'rand-color',
     color: null,
 
     events: {
@@ -23,7 +25,7 @@ define([
     },
 
     render: function() {
-      this.setHTML(this.tmpl());
+      this.$el.html(this.tmpl());
       this.renderColor();
       return this;
     },
