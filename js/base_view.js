@@ -1,8 +1,6 @@
 define([
 
-  'jquery',
-  'underscore',
-  'backbone',
+  'jquery', 'underscore', 'backbone',
 
 ], function($, _, Backbone) {
 
@@ -18,12 +16,6 @@ define([
 
   // Add helpers to the backbone view.
   _.extend(Backbone.View.prototype, {
-
-    // Creates DOM elements from the given html. Sets the view's
-    // element to the root of the new elements.
-    setHTML: function(html) {
-      this.setElement($.parseHTML(html.trim())[0]);
-    },
 
   });
 

@@ -8,8 +8,7 @@ require.config({
 
 require([
 
-  'jquery',
-  'main_view',
+  'jquery', 'main_view',
 
 ], function($, MainView) {
 

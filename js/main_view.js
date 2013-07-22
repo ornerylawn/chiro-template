@@ -1,9 +1,6 @@
 define([
 
-  'jquery',
-  'underscore',
-  'base_view',
-  'text!tmpl/main.html',
+  'jquery', 'underscore', 'base_view', 'text!tmpl/main.html',
 
 ], function($, _, BaseView, tmplText) {
 
